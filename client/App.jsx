@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import './index.html'
 import {Mongo} from 'meteor/mongo'
+import TrackerReact from 'meteor/ultimatejs:tracker-react';
 
 Resolutions = new Mongo.Collection("resolutions")
 
-export default class App extends React.Component{
+export default class App extends TrackerReact(React.Component){
+
+    resolutions(){
+        return Resolutions.find().fetch();
+    }
 
     addResolution(event){
         event.preventDefault();
@@ -23,16 +28,27 @@ export default class App extends React.Component{
     }
 
     render(){
+        
+        let reso = this.resolutions();
+        if (reso.length < 1){
+            return (<div>Loading</div>)
+        }
         return (
             <div>
-            <h1>My resolutions</h1>
-            <form className="new-resolution" onSubmit={this.addResolution.bind(this)}>
-                <input
-                    type="text"
-                    ref="resolution"
-                    placeholder="Go to the gym..."
-                />
-            </form>
+                <h1>My resolutions</h1>
+                <form className="new-resolution" onSubmit={this.addResolution.bind(this)}>
+                    <input
+                        type="text"
+                        ref="resolution"
+                        placeholder="Go to the gym..."
+                    />
+                </form>
+                <div>
+                    {    
+                        reso[0].res
+                    }
+                </div>
+
             </div>
         )
     }
