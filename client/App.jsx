@@ -11,10 +11,9 @@ class App extends React.Component{
         )
     }
 }
-if (Meteor.isClient){
-    Meteor.startup(function(){
-        ReactDOM.render(<App />, document.getElementById("render-target"));
-    });
+
+Meteor.startup(function(){
+    ReactDOM.render(<App />, document.getElementById("render-target"));
+});
     
-}
 
