@@ -24,8 +24,12 @@ export default class App extends TrackerReact(React.Component){
         return (
             <div>
                 <ResolutionsForm/>
-                <ul>
-                    <ResolutionSingle resolution={reso[0]}/>
+                <ul className="resolutions">
+                    {
+                    reso.map( (resolution) => {
+                        return <ResolutionSingle key={resolution._id} resolution={resolution}/>
+                    })
+                    }
                 </ul>
             </div>
         )
