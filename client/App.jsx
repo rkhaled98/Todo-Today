@@ -4,7 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import './index.html'
 
 
-class App extends React.Component{
+export default class App extends React.Component{
     render(){
         return (
             <h1>Hello World </h1>
@@ -12,8 +12,4 @@ class App extends React.Component{
     }
 }
 
-Meteor.startup(function(){
-    ReactDOM.render(<App />, document.getElementById("render-target"));
-});
-    
 
