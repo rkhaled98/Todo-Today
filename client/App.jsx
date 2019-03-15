@@ -12,6 +12,14 @@ export default class App extends React.Component{
         event.preventDefault();
         var text = this.refs.resolution.value;
         console.log(text)
+
+        Resolutions.insert({
+            res: text,
+            completed: false,
+            createdAt: new Date(),
+        });
+
+        this.refs.resolution.value = ""
     }
 
     render(){
