@@ -14,6 +14,13 @@
     "react-dom": "^16.8.4",
     "react-mounter": "^1.2.0"
   },
+  "meteor": {
+    "mainModule": {
+      "client": "client/App.jsx",
+      "server": "server/main.js"
+    },
+    "testModule": "tests/main.js"
+  },
   "version": "1.0.0",
   "main": "index.js",
   "directories": {

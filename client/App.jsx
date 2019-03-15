@@ -12,4 +12,15 @@ export default class App extends React.Component{
     }
 }
 
+import {mount} from 'react-mounter'
+import {MainLayout} from '../lib/MainLayout.jsx'
+
+FlowRouter.route('/', {
+    action(){
+        mount(MainLayout,{
+            content: (<App name="my app"/>)
+        })
+    }
+});
+
 
