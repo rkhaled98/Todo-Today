@@ -5,6 +5,8 @@ import './index.html'
 import {Mongo} from 'meteor/mongo'
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
 
+import ResolutionsForm from '../lib/ResolutionsForm.jsx'
+
 Resolutions = new Mongo.Collection("resolutions")
 
 export default class App extends TrackerReact(React.Component){
@@ -13,19 +15,7 @@ export default class App extends TrackerReact(React.Component){
         return Resolutions.find().fetch();
     }
 
-    addResolution(event){
-        event.preventDefault();
-        var text = this.refs.resolution.value;
-        console.log(text)
 
-        Resolutions.insert({
-            res: text,
-            completed: false,
-            createdAt: new Date(),
-        });
-
-        this.refs.resolution.value = ""
-    }
 
     render(){
         
@@ -35,14 +25,15 @@ export default class App extends TrackerReact(React.Component){
         }
         return (
             <div>
-                <h1>My resolutions</h1>
+                <ResolutionsForm/>
+                {/* <h1>My resolutions</h1>
                 <form className="new-resolution" onSubmit={this.addResolution.bind(this)}>
                     <input
                         type="text"
                         ref="resolution"
                         placeholder="Go to the gym..."
                     />
-                </form>
+                </form> */}
                 <div>
                     {    
                         reso[0].res
