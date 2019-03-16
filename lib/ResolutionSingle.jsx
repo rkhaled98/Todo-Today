@@ -10,10 +10,16 @@ export default class ResolutionSingle extends Component{
         Resolutions.remove({"_id": this.props.resolution._id})
     }
 
+    checkItem(event){
+        event.preventDefault()
+        console.log(this)
+        Resolutions.update({})
+    }
+
     render(){
         return (
-            <li onClick={this.removeItem.bind(this)}>
-                {this.props.resolution.res}
+            <li onClick={this.removeItem.bind(this)} className={this.props.resolution.completed ? "checked" : ""}>
+                <input type="checkbox" onClick={this.checkItem.bind(this)}/> {this.props.resolution.res}
                 {this.props.resolution.completed}
             </li>
         )
