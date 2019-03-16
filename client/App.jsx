@@ -6,6 +6,7 @@ import TrackerReact from 'meteor/ultimatejs:tracker-react';
 
 import ResolutionsForm from '../lib/ResolutionsForm.jsx'
 import ResolutionSingle from '../lib/ResolutionSingle.jsx'
+import AboutPage from '../lib/AboutPage.jsx'
 
 Resolutions = new Mongo.Collection("resolutions")
 
@@ -43,6 +44,14 @@ FlowRouter.route('/', {
     action(){
         mount(MainLayout,{
             content: (<App name="my app"/>)
+        })
+    }
+});
+
+FlowRouter.route('/about', {
+    action(){
+        mount(MainLayout,{
+            content: (<AboutPage/>)
         })
     }
 });
