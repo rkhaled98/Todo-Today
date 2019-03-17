@@ -10,6 +10,8 @@ A simple web app for tracking and logging to-do items. With help from a tutorial
 ### Future updates
 - User account functionality
 - Make to-do items by day
+- Stats on tasks given up on vs. completed successfully
+- Motivation to not quit tasks
 
 ### Current Features
 - Add to-do items
