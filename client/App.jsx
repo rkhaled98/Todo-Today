@@ -9,6 +9,7 @@ import ResolutionSingle from '../lib/ResolutionSingle.jsx'
 import AboutPage from '../lib/AboutPage.jsx'
 
 Resolutions = new Mongo.Collection("resolutions")
+Stats = new Mongo.Collection("stats")
 
 export default class App extends TrackerReact(React.Component){
 
@@ -19,9 +20,6 @@ export default class App extends TrackerReact(React.Component){
     render(){
         
         let reso = this.resolutions();
-        // if (reso.length < 1){
-        //     return (<div>Loading</div>)
-        // }
         return (
             <div>
                 <ResolutionsForm/>
