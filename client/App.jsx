@@ -19,9 +19,9 @@ export default class App extends TrackerReact(React.Component){
     render(){
         
         let reso = this.resolutions();
-        if (reso.length < 1){
-            return (<div>Loading</div>)
-        }
+        // if (reso.length < 1){
+        //     return (<div>Loading</div>)
+        // }
         return (
             <div>
                 <ResolutionsForm/>

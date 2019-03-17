@@ -8,6 +8,8 @@ export default class ResolutionSingle extends Component{
         event.preventDefault()
         console.log(this)
         Resolutions.remove({"_id": this.props.resolution._id})
+        var doc = Resolutions.findOne({"counter": true});
+        Resolutions.update({"._id": doc._id}, {$inc : {"count_done": 1}}, {"upsert": true})
     }
 
     checkItem(event){
@@ -24,7 +26,13 @@ export default class ResolutionSingle extends Component{
                 type="checkbox" 
                 onClick={this.checkItem.bind(this)}
                 checked={this.props.resolution.completed ? true : false}/>
+
                 {this.props.resolution.res}
+
+                <button className="btn-cancel"  
+                onClick={this.removeItem.bind(this)}> 
+                &times; 
+                </button>
             </li>
         )
     }
