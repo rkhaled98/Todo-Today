@@ -10,6 +10,7 @@ import AboutPage from '../lib/AboutPage.jsx'
 
 Resolutions = new Mongo.Collection("resolutions")
 Stats = new Mongo.Collection("stats")
+DoneTasks = new Mongo.Collection("doneTasks")
 
 export default class App extends TrackerReact(React.Component){
 
@@ -22,7 +23,9 @@ export default class App extends TrackerReact(React.Component){
         return (
             <div>
                 <ResolutionsForm/>
+                
                 <ul className="resolutions">
+                {reso.length < 1 ? <li>You've done everything! Keep it up!</li> : ""} 
                     {
                     reso.map( (resolution) => {
                         return <ResolutionSingle key={resolution._id} resolution={resolution}/>

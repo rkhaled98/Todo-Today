@@ -17,7 +17,7 @@ export default class ResolutionsForm extends Component{
     render(){
         return(
         <div>
-            <h2>My Resolutions</h2>
+            <h2>My Goals</h2>
         <form className="new-resolution" onSubmit={this.addResolution.bind(this)}>
             <input
                 type="text"

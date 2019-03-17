@@ -7,9 +7,12 @@ export default class ResolutionSingle extends Component{
     removeItem(event){
         event.preventDefault()
         console.log(this)
+        var to_insert = Resolutions.find({"_id": this.props.resolution._id}).fetch()
+        DoneTasks.insert(to_insert)
         Resolutions.remove({"_id": this.props.resolution._id})
-        var doc = Resolutions.findOne({"counter": true});
-        Resolutions.update({"._id": doc._id}, {$inc : {"count_done": 1}}, {"upsert": true})
+        // var doc = Resolutions.findOne({"counter": true});
+        // Resolutions.update({"._id": doc._id}, {$inc : {"count_done": 1}}, {"upsert": true})
+
     }
 
     checkItem(event){
