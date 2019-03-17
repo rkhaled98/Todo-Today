@@ -18,7 +18,6 @@ export default class App extends TrackerReact(React.Component){
     }
 
     render(){
-        
         let reso = this.resolutions();
         return (
             <div>
